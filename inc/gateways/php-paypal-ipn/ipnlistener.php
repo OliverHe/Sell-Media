@@ -28,7 +28,7 @@ class IpnListener {
      *
      *  @var boolean
      */
-    public $force_ssl_v3 = true;     
+    public $force_tls_v1 = true;     
    
     /**
      *  If true, cURL will use the CURLOPT_FOLLOWLOCATION to follow any 
@@ -105,8 +105,8 @@ class IpnListener {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, true);
         
-        if ($this->force_ssl_v3) {
-            curl_setopt($ch, CURLOPT_SSLVERSION, 3);
+        if ($this->force_tls_v1) {
+            curl_setopt($ch, CURLOPT_SSLVERSION, 1);
         }
         
         $this->response = curl_exec($ch);
